@@ -1,0 +1,30 @@
+flowchart TD
+    A["User/API Request"] --> B["FastAPI App (main.py)"]
+    B --> C["SyraaAgent (main.py)"]
+    C --> D["AI Service (services/ai_service.py)"]
+    D --> E["Knowledge Base Manager (knowledge_base/manager.py)"]
+    B --> F["Appointment Service (appointment_service.py)"]
+    F --> G["Calendar Service (calendar_service.py)"]
+    F --> H["Database Service (database.py)"]
+    F --> I["Models (models.py)"]
+    B --> J["Patient Service (patient_service.py)"]
+    J --> H
+    J --> I
+    G --> H
+    G --> I
+    D --> K["Google Gemini API"]
+    B --> L["Utils (utils.py)"]
+    H --> M["Supabase DB"]
+    E --> N["clinic_info.json"]
+    subgraph "Config & Env"
+      O["config.py"]
+      P[".env, alembic.ini, Docker, etc."]
+    end
+    B --> O
+    O --> P
+    H --> O
+    D --> O
+    F --> O
+    J --> O
+    G --> O
+    E --> O 

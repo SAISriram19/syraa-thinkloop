@@ -1,0 +1,74 @@
+{
+  "clinic_name": "City Health Clinic",
+  "address": "123 Healthcare Ave, Medicity, MC 12345",
+  "phone": "+1 (555) 123-4567",
+  "email": "info@cityhealthclinic.com",
+  "website": "https://cityhealthclinic.com",
+  "hours": {
+    "monday": "8:00 AM - 6:00 PM",
+    "tuesday": "8:00 AM - 6:00 PM",
+    "wednesday": "8:00 AM - 6:00 PM",
+    "thursday": "8:00 AM - 8:00 PM",
+    "friday": "8:00 AM - 5:00 PM",
+    "saturday": "9:00 AM - 2:00 PM",
+    "sunday": "Closed"
+  },
+  "services": [
+    "General Check-ups",
+    "Vaccinations",
+    "Chronic Disease Management",
+    "Minor Procedures",
+    "Lab Tests",
+    "Health Screenings"
+  ],
+  "doctors": [
+    {
+      "id": "doc_001",
+      "name": "Dr. Sarah Johnson",
+      "specialty": "Family Medicine",
+      "bio": "Board-certified family physician with 10+ years of experience.",
+      "education": "MD, Harvard Medical School",
+      "languages": ["English", "Spanish"]
+    },
+    {
+      "id": "doc_002",
+      "name": "Dr. Michael Chen",
+      "specialty": "Cardiology",
+      "bio": "Cardiologist specializing in preventive cardiology and heart failure.",
+      "education": "MD, Johns Hopkins University",
+      "languages": ["English", "Mandarin"]
+    }
+  ],
+  "insurance_accepted": [
+    "Aetna",
+    "Blue Cross Blue Shield",
+    "Cigna",
+    "Medicare",
+    "UnitedHealthcare"
+  ],
+  "payment_methods": [
+    "Cash",
+    "Credit/Debit Cards",
+    "Health Savings Account (HSA)",
+    "Payment Plans"
+  ],
+  "faqs": [
+    {
+      "question": "Do I need to bring anything to my first appointment?",
+      "answer": "Please bring your ID, insurance card, list of current medications, and any relevant medical records."
+    },
+    {
+      "question": "How do I request a prescription refill?",
+      "answer": "You can request refills through our patient portal or by calling our office during business hours."
+    },
+    {
+      "question": "What is your cancellation policy?",
+      "answer": "We require 24 hours notice for appointment cancellations to avoid a $50 late cancellation fee."
+    }
+  ],
+  "covid_protocols": [
+    "Masks are optional but recommended",
+    "Enhanced cleaning procedures between patients",
+    "Virtual visits available for appropriate cases"
+  ]
+}

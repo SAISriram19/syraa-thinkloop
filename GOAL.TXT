@@ -1,0 +1,260 @@
+🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ “Your 24/7 Smart Front Desk Agent”
+ 📘
+ Overview
+ SYRAA is an AI-powered virtual front desk agent designed to replace and outperform traditional receptionists in clinics 
+and hospitals. Operating as a voice-first autonomous agent, SYRAA handles patient intake, appointment management, 
+follow-ups, and intelligent conversations with both new and existing patients – reducing no-shows and eliminating 
+manual errors.
+ With integration-ready APIs and HIPAA-compliant foundations, SYRAA becomes a critical part of modern healthcare 
+practice management.
+ 🧠
+ Vision
+ Empower every clinic to provide world-class patient interaction—without human limits.
+ SYRAA aims to redefine how healthcare clinics manage their patient calls. With natural voice interactions, personalized 
+memory, and real-time decision-making, it ensures that no call is missed, every patient is cared for, and schedules stay 
+optimized.
+ 🎯
+ Goals & Objectives
+ Goal Description
+ 1. Autonomous Voice Assistant Handle 100% of front-desk conversations over phone 
+calls.
+ 2. Reduce No-Shows Minimize missed appointments using intelligent 
+reminders, confirmations, and rescheduling.
+ 3. Personalized Memory Remember patient history and personalize every 
+conversation.
+ 4. Seamless Calendar Sync Integrate with doctor schedules and tools like Google 
+Calendar.
+ 5. 24/7 Availability Provide round-the-clock support to patients without 
+downtime.
+ 6. Compliant and Secure Plan for HIPAA, ISO medical compliance, and data 
+6/15/25, 4:13 PM
+ 🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ https://app.slack.com/client/T090RFEAAA0/canvases 1/6
+protection.
+ 🧩
+ Core Features
+ 1. 
+�
+�
+ Conversational Voice Agent
+ ●
+ ●
+ ●
+ ●
+ Powered by LiveKit Agents and Gemini LLM
+ Real-time, natural voice interaction
+ Gender-adaptive TTS via DeepGem
+ Understands and responds contextually like a human receptionist
+ 2. 
+�
+�
+ Appointment Lifecycle Management
+ Functionality Description
+ Scheduling Books appointments after checking doctor's real-time 
+availability from Google Calendar.
+ Rescheduling Offers alternate slots in case of patient or doctor 
+rescheduling.
+ Cancellation Cancels appointments with reason logging and 
+confirmation.
+ Follow-ups Automatically suggests and schedules follow-up 
+appointments based on history.
+ 3. 
+�
+�
+ Patient Memory & Personalization
+ Scenario Experience
+ New Caller Asks name, age, appointment reason, preferred 
+time/date, and who it's for.
+ Returning Caller Greets by name, references previous interactions, offers 
+options to reschedule, cancel, or book for a family 
+member.
+ Multi-patient Support Can recognize and handle multiple patients tied to one 
+caller (e.g. a parent booking for a child).
+ Data stored securely in Supabase, indexed in VectorDB for semantic search and memory.
+ 6/15/25, 4:13 PM
+ 🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ https://app.slack.com/client/T090RFEAAA0/canvases 2/6
+6/15/25, 4:13 PM
+ 🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ 4. 
+☎
+ Telephony System
+ ●
+ ●
+ ●
+ Inbound/outbound calls via Plivo
+ Smart call routing (fallback to human if needed)
+ Whisper messages and escalation when agent is unsure
+ 5. 
+�
+�
+ Intelligent Follow-Ups & No-Show Reduction
+ ●
+ ●
+ ●
+ Sends voice/text reminders pre-appointment
+ Option to confirm, cancel or reschedule from call or message
+ Smart analysis of patient behavior patterns to proactively intervene
+ 6. 
+�
+�
+ Knowledge-Driven Answers
+ ●
+ ●
+ Integrated with a Vector Knowledge Base
+ Answers FAQs: consultation fee, timing, location, specialist availability, documents to bring, insurance policies, etc.
+ 7. 
+�
+�
+ Analytics & Insights Dashboard (Phase 2)
+ ●
+ ●
+ ●
+ ●
+ Daily call metrics
+ Appointment trends
+ No-show reports
+ Patient satisfaction insights (voice sentiment)
+ 8. 
+�
+�
+ Compliance Ready (Phase 2/3)
+ ●
+ ●
+ ●
+ Data encryption (in-transit & at-rest)
+ HIPAA & ISO roadmap
+ Access logs and role-based control
+ 🔧
+ Tech Stack
+ Layer
+ Voice Agent Framework
+ Telephony
+ LLM
+ TTS
+ Database
+ Technology
+ LiveKit Agents
+ Plivo
+ Gemini
+ Deepgrem
+ Supabase
+ https://app.slack.com/client/T090RFEAAA0/canvases
+ 3/6
+Calendar Tool Google Calendar (via MCP)
+ Knowledge Memory Vector DB
+ Deployment Docker on Google Cloud
+ MCP Server Composio MCP
+ WhatsApp Outbound Pinnacle
+ 🧪
+ MVP Scope (Phase 1)
+ 
+✅
+ Inbound voice support
+ 
+✅
+ New & existing patient flows
+ 
+✅
+ Appointment scheduling & rescheduling
+ 
+✅
+ Google Calendar integration
+ 
+✅
+ Context memory for callers
+ 
+✅
+ Voice reminders for appointments
+ 
+✅
+ Plivo call handling setup
+ 
+✅
+ WhatsApp/Email integration, 
+ 
+✅
+ Dashboard for clinics, FAQ answering, smart routing 
+�
+�
+ Future Roadmap
+ Milestone Feature
+ Phase 2 HIPAA-safe data practices (initial compliance prep)
+ Phase 3 Full CRM/EHR integration, HIPAA audit, multilingual 
+voice
+ Phase 4 Offline fallback workflows
+ Phase 5 Integration marketplace (Zoho, Practo, Odoo, etc.)
+ 🔍
+ Example Call Flows
+ 🧑
+ New Caller – Booking Flow
+ "Hello! I’m SYRAA, your smart front desk assistant. Can I get your name please?"
+ → Captures: Name, Age, Relation, Reason, Preferred Time
+ → Suggests available doctor slots
+ → Confirms and books via Google Calendar
+ → Sends voice/SMS confirmation
+ 6/15/25, 4:13 PM
+ 🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ https://app.slack.com/client/T090RFEAAA0/canvases 4/6
+6/15/25, 4:13 PM
+ 🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ Existing Caller – Family Booking
+ "Hi Mr. Ramesh! Last time you booked with Dr. Arvind. How can I assist today?"
+ → “I want to book for my son this time.”
+ → Handles multi-person booking
+ → Suggests relevant time slot
+ → Confirms
+ 📉
+ No-Show Recovery Flow
+ “You missed your last appointment. Would you like to reschedule?”
+ → Offers options
+ → Gets new time
+ → Books instantly
+ ✅
+ Success Metrics (KPIs)
+ KPI
+ Patient call handling rate
+ Appointment booking accuracy
+ Reduction in no-shows
+ Uptime
+ Target
+ 95%+
+ 99%
+ 50% within 60 days
+ 99.9%
+ Patient satisfaction (CSAT)
+ 4.5+ / 5
+ 📂
+ Supporting Assets (To Be Created)
+ ●
+ ●
+ ●
+ ●
+ Voice persona & branding pack (logo, tone, TTS tuning)
+ Training data set for fine-tuning Gemini prompts
+ User manual for clinics
+ Onboarding flow for new doctors
+ 📎
+ Notes
+ ●
+ ●
+ ●
+ ●
+ SYRAA can be installed per clinic via a custom agent instance
+ The agent can be trained for custom FAQs
+ Offline mode + fallback escalation to live human in case of ambiguity (Phase 2)
+ Designed for plug-and-play deployment with existing tools
+ https://app.slack.com/client/T090RFEAAA0/canvases
+ 5/6
+6/15/25, 4:13 PM
+ 🩺
+ SYRAA – AI Receptionist for Clinics & Hospitals
+ 6/6
+ https://app.slack.com/client/T090RFEAAA0/canvases

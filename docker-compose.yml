@@ -1,0 +1,98 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      target: development
+    container_name: syraa-app
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - /app/venv
+      - /app/__pycache__
+    depends_on:
+      - db
+    networks:
+      - syraa-network
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=1
+      - LOG_LEVEL=DEBUG
+
+  db:
+    image: supabase/postgres:15.1.0.76
+    container_name: syraa-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: syraa
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - syraa-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d syraa"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: syraa-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - syraa-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 30s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: syraa-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@syraa.ai
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - syraa-network
+    depends_on:
+      - db
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    container_name: syraa-redis-commander
+    restart: unless-stopped
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - "8081:8081"
+    networks:
+      - syraa-network
+    depends_on:
+      - redis
+
+volumes:
+  postgres_data:
+  redis_data:
+  pgadmin_data:
+
+networks:
+  syraa-network:
+    driver: bridge
