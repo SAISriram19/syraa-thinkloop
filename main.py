@@ -166,7 +166,7 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
 # Root endpoint
 @app.get("/")
 @limiter.limit("10/minute")
-async def root():
+async def root(request: Request):
     """Root endpoint to check if the server is running"""
     return {
         "status": "ok",

@@ -1,71 +1,28 @@
-# Use an official Python runtime as the base image
-FROM python:3.10-slim as builder
+# Use official Python image
+FROM python:3.11-slim
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    POETRY_VERSION=1.4.2
+    PYTHONUNBUFFERED=1
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libpq-dev \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc && \
+    rm -rf /var/lib/apt/lists/*
 
-# Set working directory
+# Set work directory
 WORKDIR /app
 
-# Install Poetry
-RUN pip install "poetry==$POETRY_VERSION"
-
-# Copy only the requirements files first to leverage Docker cache
-COPY pyproject.toml poetry.lock* ./
-
 # Install Python dependencies
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi --no-dev
+COPY requirements.txt ./
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application
+# Copy project files
 COPY . .
 
-# Create a non-root user and switch to it
-RUN useradd -m -u 1000 appuser && \
-    chown -R appuser:appuser /app
-USER appuser
-
-# Set the command to run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
-
-# Production stage
-FROM builder as production
-
-# Install additional production dependencies if needed
-RUN poetry install --no-interaction --no-ansi --no-dev --no-root
-
-# Development stage
-FROM builder as development
-
-# Install development dependencies
-RUN poetry install --no-interaction --no-ansi
-
-# Set environment variables for development
-ENV PYTHONDONTWRITEBYTECODE=0 \
-    PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app \
-    PYTHONFAULTHANDLER=1 \
-    PYTHONHASHSEED=random \
-    PIP_NO_CACHE_DIR=off \
-    PIP_DISABLE_PIP_VERSION_CHECK=on \
-    PIP_DEFAULT_TIMEOUT=100 \
-    POETRY_VERSION=1.4.2 \
-    DEBUG=1
-
-# Expose the port the app runs on
+# Expose port for FastAPI
 EXPOSE 8000
 
-# Command to run the application with hot-reload for development
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Default command (can be overridden)
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"] 
